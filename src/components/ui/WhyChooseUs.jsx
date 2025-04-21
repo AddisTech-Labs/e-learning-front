@@ -1,68 +1,72 @@
 import React from "react";
-// Then replace: <a href={feature.link}>...</a>
-// With: <Link to={feature.link}>...</Link>
+import { motion } from "framer-motion";
+import { BookOpen, Headset, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const WhyChooseUs = () => {
   const features = [
     {
-      title: "Expert Mentor",
+      icon: <Users className="h-6 w-6" />,
+      title: "Expert Mentors",
       description:
-        "Our expert mentors are the cornerstone of our educational approach. With a wealth of knowledge they support our students on their journey to success.",
-      image: "/images/expert.png",
-      link: "/mentor", // Customize the route
+        "Learn from industry professionals with real-world experience",
+      link: "/mentors",
     },
     {
-      title: "High Quality Live Class",
-      description:
-        "We deliver high-quality live classes to our students, providing interactive learning experiences led by experienced instructors.",
-      image: "/images/live-class.png",
-      link: "/live-class", // Customize the route
+      icon: <BookOpen className="h-6 w-6" />,
+      title: "Live Classes",
+      description: "Interactive sessions with hands-on learning",
+      link: "/classes",
     },
     {
-      title: "24/7 Live Support",
-      description:
-        "We offer our students 24/7 live support. Whether it's a question or a challenge at midnight, our dedicated team is here to provide guidance and assistance.",
-      image: "/images/support.png",
-      link: "/support", // Customize the route
+      icon: <Headset className="h-6 w-6" />,
+      title: "24/7 Support",
+      description: "Always available to help with your learning journey",
+      link: "/support",
     },
   ];
 
   return (
-    <section className="bg-[#071d2f] text-white py-16 px-6">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold text-purple-400 mb-12">
-          <a
-            href="#"
-            className="text-lg font-semibold text-purple-400 hover:underline"
-          >
-            Why you choose us
-          </a>
-          <div className="w-20 h-1 bg-purple-600 mx-auto mt-2 rounded-full" />
-        </h2>
+    <section className="py-20 bg-indigo-50 dark:bg-[#0f172a]">
+      <div className="container max-w-7xl px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Why Learn With Us
+          </h2>
+          <div className="w-20 h-1 bg-blue-500 mx-auto"></div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-[#0d2a45] p-6 rounded-xl text-center shadow-md hover:shadow-lg transition"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
             >
-              <div className="flex justify-center mb-4">
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-14 h-14 object-contain"
-                />
+              <div className="h-full p-8 bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-100">
+                <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-blue-600">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 mb-6">{feature.description}</p>
+                <Button
+                  variant="link"
+                  className="px-0 text-blue-600 hover:text-blue-800"
+                >
+                  Learn more →
+                </Button>
               </div>
-              <a
-                href={feature.link}
-                className="text-lg font-semibold text-purple-400 hover:underline"
-              >
-                {feature.title}
-              </a>
-              <p className="mt-2 text-sm text-gray-300">
-                {feature.description}
-              </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
