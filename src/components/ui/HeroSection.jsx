@@ -1,36 +1,43 @@
 import React from "react";
+import { Button } from "@/components/ui/button";
 
-const HeroSection = () => {
+const CourseraStyleHero = () => {
   return (
-    <section className="bg-gradient-to-r from-teal-600 to-teal-400 text-white py-16 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-10 md:space-y-0">
+    <section className="bg-[#f5f9ff] py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
         {/* Left Content */}
-        <div className="md:w-1/2">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Online Teaching <br />
-            Marketplace And <br />
-            E-Learning Platform
+        <div className="lg:w-1/2 space-y-6">
+          <div className="flex items-center space-x-2">
+            <img src="/coursera-logo.svg" alt="Coursera" className="h-6" />
+            <span className="bg-blue-600 text-white text-sm font-bold px-2 py-1 rounded">
+              PLUS
+            </span>
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900">
+            Achieve your career goals with <br className="hidden sm:block" />
+            Coursera Plus
           </h1>
+          <p className="text-gray-700 text-lg">
+            Subscribe to build job-ready skills from world-class institutions.
+          </p>
+          <p className="text-gray-700">$59/month, cancel anytime</p>
 
-          {/* Search Bar */}
-          <div className="mt-8 flex items-center bg-white rounded-md overflow-hidden w-full max-w-md">
-            <input
-              type="text"
-              placeholder="Ex: Zoology ..."
-              className="w-full px-4 py-3 text-gray-700 focus:outline-none"
-            />
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3">
-              Find Teacher
-            </button>
+          <div className="space-y-2">
+            <Button className="bg-blue-600 text-white text-base px-6 py-3">
+              Start 7-day Free Trial
+            </Button>
+            <p className="text-blue-600 text-sm font-semibold">
+              or $399/year with 14-day money-back guarantee
+            </p>
           </div>
         </div>
 
         {/* Right Illustration */}
-        <div className="md:w-1/2">
+        <div className="lg:w-1/2 flex justify-center">
           <img
-            src="/el.svg"
-            alt="Illustration"
-            className="w-full max-w-md mx-auto"
+            src="/hero-illustration.png"
+            alt="Hero Illustration"
+            className="w-full max-w-md"
           />
         </div>
       </div>
@@ -38,4 +45,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default CourseraStyleHero;
