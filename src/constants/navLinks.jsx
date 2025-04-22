@@ -1,8 +1,26 @@
-import { FaThLarge, FaTags, FaBook } from "react-icons/fa";
+import { FaGraduationCap, FaThLarge, FaTags, FaBook } from "react-icons/fa";
 
 const navLinks = [
-  { name: "Categories", href: "#categories", icon: <FaThLarge /> },
-  { name: "Pricing", href: "#pricing", icon: <FaTags /> },
-  { name: "Resources", href: "#resources", icon: <FaBook /> },
+  {
+    name: "All Courses",
+    href: "#courses",
+    icon: <FaGraduationCap />,
+  },
+  {
+    name: "Course Catalog",
+    href: "#catalog",
+    icon: <FaThLarge />,
+  },
+  {
+    name: "Plans & Pricing",
+    href: "#pricing",
+    icon: <FaTags />,
+  },
+  {
+    name: "Learning Resources",
+    href: "#resources",
+    icon: <FaBook />,
+  },
 ];
+
 export default navLinks;

@@ -10,36 +10,13 @@ export const Navbar = () => {
 
   return (
     <header className="font-montserrat sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
-      <div className="container flex h-20 items-center justify-between px-4 md:ml-20">
+      <div className="container flex h-16 items-center justify-between px-4 md:ml-12 ">
         {/* Logo */}
         <Logo size="md" href="/" />
 
-        {/* Mobile Icons (Search + Menu) */}
+        {/* Mobile Icons */}
         <div className="md:hidden flex items-center gap-3 ml-auto">
-          {/* Search Icon */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="p-2"
-            onClick={() => console.log("Search icon clicked")}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-              />
-            </svg>
-          </Button>
-
-          {/* Hamburger / Close */}
+          {/* Hamburger  */}
           <Button
             variant="ghost"
             size="icon"
@@ -87,7 +64,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden absolute top-20 w-full bg-background border-t z-40">
+        <div className="md:hidden fixed top-16 left-0 w-full h-[calc(100vh-4rem)] bg-white z-40 overflow-y-auto">
           <div className="container py-4 space-y-4">
             {/* Mobile Search Bar */}
             <div className="px-4">
@@ -106,9 +83,8 @@ export const Navbar = () => {
                   <span>{link.icon}</span>
                   <span>{link.name}</span>
                 </div>
-                {(link.name === "Categories" || link.name === "Pricing") && (
-                  <ChevronRight className="w-4 h-4 text-muted-foreground" />
-                )}
+
+                <ChevronRight className="w-4 h-4 text-muted-foreground" />
               </a>
             ))}
 

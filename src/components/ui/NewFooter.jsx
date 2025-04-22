@@ -1,110 +1,129 @@
 import React from "react";
-import { BookOpen, Mail, MapPin, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { FaFacebook, FaTelegram, FaYoutube } from "react-icons/fa";
+import { Globe } from "lucide-react";
 
-export const Footer = () => {
+const footerLinks = [
+  {
+    title: "Explore",
+    links: ["Courses", "About", "Community", "Blog"],
+  },
+  {
+    title: "Support",
+    links: ["Help Center", "Contact Us", "Terms & Privacy"],
+  },
+];
+
+export const NewFooter = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
-      <div className="container max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand Column */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-blue-400">Edu</span>
+    <footer className="bg-[#0F172A] text-gray-400 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Logo & Mission */}
+        <Card className="bg-transparent border-none shadow-none text-gray-400">
+          <CardContent className="p-0">
+            <div>
+              <h2 className="text-xl font-semibold text-white tracking-wide">
+                FelegeHiwot
+              </h2>
+              <p className="text-sm text-gray-500 mt-1">
+                Tradition meets technology.
+              </p>
             </div>
-            <p className="text-gray-400">
-              Empowering learners through quality education.
-            </p>
-            <Button
-              variant="default"
-              className="border-gray-700 text-white hover:bg-blue-800"
-            >
-              Join Our Telegram Community
-            </Button>
-          </div>
+          </CardContent>
+        </Card>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 border-l-2 border-blue-500 pl-3">
-              Quick Links
-            </h3>
-            <ul className="space-y-3 text-gray-400">
-              {["Home", "Courses", "About", "Contact"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-blue-400 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Dynamic Navigation Sections */}
+        {footerLinks.map((section) => (
+          <Card
+            key={section.title}
+            className="bg-transparent border-none shadow-none text-gray-400"
+          >
+            <CardContent className="p-0">
+              <h3 className="text-sm font-semibold text-white mb-3">
+                {section.title}
+              </h3>
+              <ul className="space-y-2 text-sm">
+                {section.links.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="hover:text-white">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        ))}
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 border-l-2 border-blue-500 pl-3">
-              Contact
-            </h3>
-            <ul className="space-y-4 text-gray-400">
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-1 text-blue-400 flex-shrink-0" />
-                <span>123 Education St, San Francisco</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="text-blue-400" />
-                <span>+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="text-blue-400" />
-                <span>contact@edutech.com</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 border-l-2 border-blue-500 pl-3">
-              Newsletter
-            </h3>
-            <p className="text-gray-400 mb-4">
-              Subscribe for course updates and news.
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 bg-gray-800 border border-gray-700 rounded-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <Button className="bg-blue-600 hover:bg-blue-700">
-                Subscribe
-              </Button>
+        {/* Contact */}
+        <Card className="bg-transparent border-none shadow-none text-gray-400">
+          <CardContent className="p-0">
+            <h3 className="text-sm font-semibold text-white mb-3">Contact</h3>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-start gap-2">
+                <MapPin className="text-[#2A73CC]" size={16} />
+                <span>Addis Ababa, Ethiopia</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="text-[#2A73CC]" size={16} />
+                <span>+251 900 000 000</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="text-[#2A73CC]" size={16} />
+                <span>info@felegehiwot.org</span>
+              </div>
             </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="mt-10 space-y-4">
+        <Separator className="bg-gray-700" />
+
+        {/* Language & Socials */}
+        <div className="flex flex-col md:flex-row md:justify-between items-center gap-4 text-xs text-gray-500">
+          {/* Social Icons */}
+          <div className="flex gap-4">
+            <a href="#" aria-label="Facebook" className="hover:text-white">
+              <FaFacebook size={18} />
+            </a>
+            <a href="#" aria-label="Telegram" className="hover:text-white">
+              <FaTelegram size={18} />
+            </a>
+            <a href="#" aria-label="YouTube" className="hover:text-white">
+              <FaYoutube size={18} />
+            </a>
+          </div>
+
+          {/* Language Selector */}
+          <div className="flex items-center gap-2">
+            <Globe size={16} className="text-gray-400" />
+            <select className="bg-transparent text-xs text-gray-400 focus:outline-none">
+              <option value="en">English</option>
+              <option value="am">አማርኛ</option>
+            </select>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 my-8"></div>
-
-        {/* Bottom Row */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} EduTech. All rights reserved.
-          </p>
-
-          <div className="flex gap-6">
-            {["Privacy Policy", "Terms", "Cookies"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-gray-500 hover:text-blue-400 text-sm transition-colors"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
+        {/* Terms & Copyright */}
+        <div className="flex justify-center gap-6 text-xs text-gray-500">
+          <a href="#" className="hover:underline">
+            Terms
+          </a>
+          <a href="#" className="hover:underline">
+            Privacy
+          </a>
         </div>
+
+        <p className="text-center text-xs text-gray-500">
+          © {new Date().getFullYear()} FelegeHiwot. All rights reserved.
+        </p>
       </div>
     </footer>
   );
 };
 
-export default Footer;
+export default NewFooter;

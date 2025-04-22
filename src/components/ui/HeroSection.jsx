@@ -1,69 +1,48 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { motion } from "framer-motion";
-import { Search } from "lucide-react";
 
-const HeroSection = () => {
+const CourseraStyleHero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-indigo-900 to-[#0f172a] text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden isolate">
-      {/* Premium background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[url('/noise-pattern.png')] bg-[size:300px_300px] mix-blend-soft-light"></div>
-      </div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.15)_0%,_transparent_70%)]"></div>
+    <section className="bg-[#f5f9ff] py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+        {/* Left Content */}
+        <div className="lg:w-1/2 space-y-6">
+          <div className="flex items-center space-x-2">
+            <img src="/coursera-logo.svg" alt="Coursera" className="h-6" />
+            <span className="bg-blue-600 text-white text-sm font-bold px-2 py-1 rounded">
+              PLUS
+            </span>
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900">
+            Achieve your career goals with <br className="hidden sm:block" />
+            Coursera Plus
+          </h1>
+          <p className="text-gray-700 text-lg">
+            Subscribe to build job-ready skills from world-class institutions.
+          </p>
+          <p className="text-gray-700">$59/month, cancel anytime</p>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:w-1/2 space-y-10"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
-                Online Teaching
-              </span>
-              <span className="block">Marketplace And</span>
-              <span className="block">E-Learning Platform</span>
-            </h1>
-
-            <p className="text-xl text-gray-300 max-w-lg leading-relaxed">
-              Connect with world-class educators or monetize your expertise
-              through our premium learning ecosystem.
+          <div className="space-y-2">
+            <Button className="bg-blue-600 text-white text-base px-6 py-3">
+              Start 7-day Free Trial
+            </Button>
+            <p className="text-blue-600 text-sm font-semibold">
+              or $399/year with 14-day money-back guarantee
             </p>
+          </div>
+        </div>
 
-            {/* Enhanced Search Bar with Icon */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="w-full max-w-2xl"
-            ></motion.div>
-          </motion.div>
-
-          {/* Right Illustration */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:w-1/2 flex justify-center relative"
-          >
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
-            <div className="relative z-10">
-              <img
-                src="/el.svg"
-                alt="E-Learning Illustration"
-                className="w-full max-w-2xl drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)] hover:scale-[1.02] transition-transform duration-500"
-              />
-            </div>
-          </motion.div>
+        {/* Right Illustration */}
+        <div className="lg:w-1/2 flex justify-center">
+          <img
+            src="/hero-illustration.png"
+            alt="Hero Illustration"
+            className="w-full max-w-md"
+          />
         </div>
       </div>
     </section>
   );
 };
 
-export default HeroSection;
+export default CourseraStyleHero;
